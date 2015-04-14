@@ -73,7 +73,7 @@ app.delete('/items/:id', function(req, res) {
     res.status(200).json(item);
 });
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
 exports.app = app;
 exports.items = items;
