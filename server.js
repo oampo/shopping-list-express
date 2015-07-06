@@ -58,6 +58,10 @@ app.post('/items', jsonParser, function(req, res) {
 });
 
 app.put('/items/:id', jsonParser, function(req, res) {
+    if (!req.body) {
+        return res.sendStatus(400);
+    }
+
     var item = items.edit(req.params.id, req.body.name);
     if (!item) {
         return res.sendStatus(404);
